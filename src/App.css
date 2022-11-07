@@ -1,0 +1,138 @@
+#root {
+  max-width: 1280px;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+*, *:before,*:after{
+  box-sizing: border-box;
+}
+
+body {
+  background: rgb(75, 73, 73);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#panel {
+  position: relative;
+  bottom: 32px;
+  right: 74.5px;
+  width: 104.2vw;
+  height: 480px;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  width: 475px;
+  height: 230px;
+  display: flex;
+  background: rgb(95, 95, 95);
+  border-radius: 15px;
+  color:aliceblue;
+  overflow: hidden;
+  font-size: 16px;
+  transition: all 0.4s;
+}
+
+.card div{
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.card:hover {
+  transform: scale(1.04);
+  color:black;
+  background-color: beige;
+}
+
+button {
+  width: 100px;
+  height: 43px;
+  border: 3px solid transparent;
+}
+
+input {
+  width: 500px;
+  height: 40px;
+  margin-right: 20px;
+  border-radius: 10px;
+  border: 3px solid transparent;
+  outline: none;
+}
+
+input:hover {
+  border: 3px solid rgba(240, 90, 0, 0.8);
+}
+
+.container span {
+  margin-right: 5px;
+  padding: 0.1px 8px; 
+}
+
+.container-options h2{
+  text-align: left;
+  font-size: 42px;
+  padding-left: 34px;
+  color:rgb(247, 113, 51);
+}
+
+.container-options div ul{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.circle {
+  border-radius: 100%;
+  height: 10px;
+  width: 10px;
+  margin-top: 8px;
+}
+
+.dead {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.gray {
+  background-color: gray;
+}
+
+#option {
+  color: black;
+}
+
+#option h1 {
+  font-size: 30px;
+  transition: all 0.5s;
+}
+
+/* #option h1:hover{
+  transform: scale(1.50);
+} */
+
+#option div{
+  display: flex;
+  justify-content: space-around;
+  font-size: 20px;
+}
+
+.data p {
+  text-align: start;
+  margin: 0;
+  padding: 1px;
+}
+
+.text{
+  opacity: 0.8;
+}
