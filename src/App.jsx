@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div className="App">
-      <img id='panel' src="https://creators-images.vice.com/content-images/contentimage/no-slug/bbc20efcbd2998134f9140bc5b20f0a5.jpg" alt="" />
+      <img id='panel' src="https://creators-images.vice.com/content-images/contentimage/no-slug/bbc20efcbd2998134f9140bc5b20f0a5.jpg" alt="image" />
       <div>
         <input type="text" value={isInput} onChange={(e)=>setIsInput(e.target.value)}/>
         <button onClick={click}>CLICK</button>

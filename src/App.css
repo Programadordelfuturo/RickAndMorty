@@ -110,16 +110,16 @@ input:hover {
 
 #option {
   color: black;
+  transition: all 0.5s;
 }
 
 #option h1 {
   font-size: 30px;
-  transition: all 0.5s;
 }
 
-/* #option h1:hover{
-  transform: scale(1.50);
-} */
+#option:hover{
+  color: white;
+}
 
 #option div{
   display: flex;
