@@ -1,12 +1,6 @@
-#root {
-  max-width: 1280px;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
 *, *:before,*:after{
   box-sizing: border-box;
+  outline: none;
 }
 
 body {
@@ -19,31 +13,30 @@ body {
 
 #panel {
   position: relative;
-  bottom: 32px;
-  right: 74.5px;
-  width: 104.2vw;
-  height: 480px;
-  margin: 0;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 63vh;
+  margin: 0px 0px 30px 0px;
   padding: 0;
 }
 
 .card {
-  width: 475px;
-  height: 230px;
+  width: 29em;
+  height: 17em;
   display: flex;
   background: rgb(95, 95, 95);
   border-radius: 15px;
   color:aliceblue;
-  overflow: hidden;
+  overflow: hidden; 
   font-size: 16px;
   transition: all 0.4s;
 }
 
-.card div{
+.data {
   padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
 }
 
 .card:hover {
@@ -53,18 +46,17 @@ body {
 }
 
 button {
-  width: 100px;
+  width: 6em;
   height: 43px;
   border: 3px solid transparent;
 }
 
 input {
-  width: 500px;
+  width: 30vw;
   height: 40px;
   margin-right: 20px;
   border-radius: 10px;
   border: 3px solid transparent;
-  outline: none;
 }
 
 input:hover {
@@ -85,8 +77,8 @@ input:hover {
 
 .container-options div ul{
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 24px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
 }
 
 .circle {
@@ -111,6 +103,8 @@ input:hover {
 #option {
   color: black;
   transition: all 0.5s;
+  flex-direction: column;
+  align-items: center;
 }
 
 #option h1 {
@@ -123,8 +117,15 @@ input:hover {
 
 #option div{
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   font-size: 20px;
+  gap: 5em;
+  margin: 0px 15px;
+}
+
+#search, #option {
+  display: flex;
+  justify-content: center;
 }
 
 .data p {
@@ -135,4 +136,39 @@ input:hover {
 
 .text{
   opacity: 0.8;
+}
+
+
+@media (max-width: 1070px){
+  input {
+    width: 230px;
+  }
+
+  .container-options div ul{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+@media (max-width: 700px){
+  .card {
+    width: 15em;
+    height: 24em;
+    flex-direction: column;
+  }
+
+  .card img{
+    height: 12em;
+  }
+
+  #option div {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .container-option>div {
+    display: grid;
+    place-items: center;
+  }
 }
