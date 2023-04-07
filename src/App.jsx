@@ -3,11 +3,12 @@ import reactLogo from './assets/react.svg'
 import './App.css'
 import axios from 'axios'
 import RickMorty from './components/RickMorty'
+import banner from './assets/rick-morty-banner.png'
 
 function App() {
 
   const [ isInput, setIsInput ] = useState('')
-  const [ location, setLocation ] = useState({})
+  const [ location, setLocation ] = useState([])
 
   
   const i = Math.floor(Math.random()*20) + 1;
@@ -15,19 +16,26 @@ function App() {
 
     useEffect(()=>{
       axios.get(`https://rickandmortyapi.com/api/location`)
-        .then(res => setLocation(res.data.results[i]))
+        .then(res =>{console.log(res.data.results[i].residents); setLocation(res.data.results[i])})
     }, [])
   
 
     const click = () => {
       axios.get(`https://rickandmortyapi.com/api/location/${isInput}`)
-        .then(res => setLocation(res.data))
+        .then(res =>{console.log(res.data); setLocation(res.data)})
     }
 
+    const [ data, setData ] = useState(1);
+    const personajesPerData = 6
+    const lastPage = Math.ceil((location?.residents?.length) / personajesPerData) ;
+    const finalIndex = data*personajesPerData
+    const firstIndex = (data - 1)*personajesPerData;
+    
+    const paginated = location?.residents?.slice(firstIndex, finalIndex);
 
   return (
     <div className="App">
-      <img id='panel' src="https://creators-images.vice.com/content-images/contentimage/no-slug/bbc20efcbd2998134f9140bc5b20f0a5.jpg" alt="image" />
+      <img id='panel' src={banner} alt="image" />
       <div id='search'>
         <input type="text" value={isInput} onChange={(e)=>setIsInput(e.target.value)}/>
         <button onClick={click}>CLICK</button>
@@ -42,16 +50,26 @@ function App() {
       </div>
       <div className='container-options'>
         <h2>Residents</h2>
+        <div id='controllers'>
+          <button onClick={() => setData(data - 1)} disabled={data==1}>Previus</button>
+          <button onClick={() => setData(data + 1)} disabled={data==lastPage}>Next</button>
+          <button onClick={() => setData(1)}>Reset</button>
+        </div>
         <div>
           <ul>
-            {location?.residents?.map(extras =>(
+            {paginated?.map(extras =>(
               <RickMorty
                 url={extras}
                 key={extras}
               />
             ))}
           </ul>
-        </div> 
+        </div>
+        <div id='controllers'>
+          <button onClick={() => setData(data - 1)} disabled={data==1}>Previus</button>
+          <button onClick={() => setData(data + 1)} disabled={data==lastPage}>Next</button>
+          <button onClick={() => setData(1)}>Reset</button>
+        </div>
       </div>
     </div>
   )
